@@ -26,6 +26,20 @@ The technologies embraced by this starter project are:
  * [HTML Code from the JSPM Getting Started Guide](https://github.com/jspm/jspm-cli/wiki/Getting-Started#5-run-the-code)
  * [The Mocha Browser test runner HTML code](http://mochajs.org/#browser-support)
 
+## Installing this package using JSPM
+
+```
+jspm install jspm-mocha-example=github:curran/jspm-mocha-example
+```
+
+After doing this, you can use SystemJS to load the module like this:
+
+```javascript
+System.import("jspm-mocha-example").then(function (myModule){
+  console.log(myModule); // Prints "myModule works!"
+});
+```
+
 ## Using the Project
 
 To set up your development environment for this project, you'll need to install:
