@@ -25,30 +25,37 @@ To install project dependencies, use the following commands:
 
 ```
 cd jspm-mocha-example
-jspm install
+jspm install --dev
 ```
 
 You should then see something like this:
 
 ```
-$ jspm install
+$ jspm install --dev
+
+     Looking up github:jmcriffey/bower-traceur
+     Looking up github:jmcriffey/bower-traceur-runtime
+     Looking up github:mochajs/mocha
+     Looking up github:chaijs/chai
+
+warn Using local override for github:chaijs/chai@2.3.0
+     Updating registry cache...
+ok   Installed traceur-runtime as github:jmcriffey/bower-traceur-runtime@0.0.88 (0.0.88)
+ok   Installed chai as github:chaijs/chai@^2.3.0 (2.3.0)
+ok   Installed traceur as github:jmcriffey/bower-traceur@0.0.88 (0.0.88)
+ok   Installed mocha as github:mochajs/mocha@^2.2.5 (2.2.5)
 ok   Install tree has no forks.
      Looking up loader files...
        es6-module-loader.js
-       es6-module-loader.src.js
        es6-module-loader.js.map
        system.js
-       system.src.js
+       es6-module-loader.src.js
        system.js.map
+       system.src.js
      
      Using loader versions:
        es6-module-loader@0.16.6
        systemjs@0.16.11
-     Looking up github:jmcriffey/bower-traceur
-     Looking up github:jmcriffey/bower-traceur-runtime
-     Updating registry cache...
-ok   Installed traceur-runtime as github:jmcriffey/bower-traceur-runtime@0.0.88 (0.0.88)
-ok   Installed traceur as github:jmcriffey/bower-traceur@0.0.88 (0.0.88)
 ok   Loader files downloaded successfully
 
 ok   Install complete.
@@ -72,6 +79,16 @@ Unit tests go under `test`, and are also authored using AMD syntax. Unit test so
 ## Running the Unit Tests
 
 Run the unit tests by running a local HTTP server, then navigating to [http://localhost:8080](http://localhost:8080). If you have installed [Node http-server](https://www.npmjs.com/package/http-server), you can run it with the command `http-server`.
+
+At this point you should see this super shiny Mocha unit test runner:
+
+![](http://curran.github.io/images/jspm-mocha-example/jspmMocha.png)
+
+If you see the following, then perhaps you didn't run `jspm install --dev`.
+
+![](http://curran.github.io/images/jspm-mocha-example/fail.png)
+
+It turns out that the [`--dev` option is required to install the `devDependencies` listed in package.json](https://github.com/jspm/jspm-cli/issues/747). We want Mocha and Chai to be devDependencies, not dependencies, because other projects that declare this project as a dependency should not need to install them, they are only for use during development.
 
 One convenient trick is to run the HTTP server as a background process in your terminal, rather than opening a new terminal tab or window for it, using the following command:
 
