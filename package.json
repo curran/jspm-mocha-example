@@ -3,7 +3,7 @@
     "directories": {
       "lib": "src"
     },
-    "main": "reactive-model",
+    "main": "myModule",
     "format": "amd",
     "dependencies": {
     },
