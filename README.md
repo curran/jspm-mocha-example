@@ -10,10 +10,10 @@ The technologies embraced by this starter project are:
 
 ## Using the Project
 
-To set up your development environment for this project, you'll need to install the following command line tools:
+To set up your development environment for this project, you'll need to install:
 
  * [Git](http://git-scm.com/)
- * [Node.js](https://nodejs.org/).
+ * [Node.js](https://nodejs.org/)
  * [JSPM](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
  * [http-server](https://www.npmjs.com/package/http-server)
 
@@ -65,7 +65,7 @@ Running `jspm install` populates the `jspm_packages` directory, which is where S
 
 ## Project Layout
 
-[`src`](./src), and are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
+[`src`](./src) contains the JavaScript source files for the project. These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
 
 [`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
 
