@@ -65,20 +65,28 @@ Running `jspm install` populates the `jspm_packages` directory, which is where S
 
 ## Project Layout
 
-[`src`](./src), and are authored using AMD syntax. The location of the main module for the package is declared in `package.json` as the `main` property under `jspm`.
+[`src`](./src), and are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
+
+[`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
 
 [`package.json`](./package.json) and [`config.js`](./config.js) are files used by JSPM. These define project dependencies and how SystemJS should try to load them. To understand these files, take a look at:
 
  * [Configuring Packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm)
  * [SystemJS Configuration Options](https://github.com/systemjs/systemjs/wiki/Configuration-Options)
 
-`[index.html](./index.html)` contains the [Browser version of the Mocha test runner](http://mochajs.org/#browser-support), modified to load unit tests via SystemJS. This setup allows unit tests to require project modules using AMD syntax.
+[`index.html`](./index.html) contains the [Browser version of the Mocha test runner](http://mochajs.org/#browser-support), modified to load unit tests via SystemJS. This setup allows unit tests to require project modules using AMD syntax. To understand the implementation of this page, take a look at:
 
-Unit tests go under `test`, and are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
+ * [HTML Code from the JSPM Getting Started Guide](https://github.com/jspm/jspm-cli/wiki/Getting-Started#5-run-the-code)
+ * [The Mocha Browser test runner HTML code](http://mochajs.org/#browser-support)
 
 ## Running the Unit Tests
 
-Run the unit tests by running a local HTTP server, then navigating to [http://localhost:8080](http://localhost:8080). If you have installed [Node http-server](https://www.npmjs.com/package/http-server), you can run it with the command `http-server`.
+Run the unit tests by running a local HTTP server, then navigating to [http://localhost:8080](http://localhost:8080). If you have installed [Node http-server](https://www.npmjs.com/package/http-server), you can run it with the command `http-server` from within the root directory of this repository.
+
+```
+cd jspm-mocha-example
+http-server
+```
 
 At this point you should see this super shiny Mocha unit test runner:
 
