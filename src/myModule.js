@@ -1,3 +1,3 @@
 define([], function (){
-  return "reactive-model";
+  return "myModule works!";
 });

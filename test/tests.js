@@ -1,10 +1,16 @@
-define(["chai", "src/reactive-model"], function (chai, ReactiveModel){
+define(["chai", "src/myModule"], function (chai, myModule){
   var expect = chai.expect;
-  describe("ReactiveModel", function(){
+  describe("My Module", function(){
     describe("Module Loading", function(){
       it("should load", function(){
-        expect(ReactiveModel).to.equal("reactive-model");
-      })
-    })
+        expect(myModule).to.equal("myModule works!");
+      });
+    });
+
+    describe("Test Failing", function(){
+      it("should show a failed test", function(){
+        expect("apples").to.equal("oranges");
+      });
+    });
   });
 });
