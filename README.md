@@ -1,3 +1,5 @@
+# jspm-mocha-example
+
 This is an example starter project that you can clone and modify.
 
 The technologies embraced by this starter project are:
