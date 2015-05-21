@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>myModule Test</title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+  </head>
+  <body>
+    <h1 id="output"></h1>
+    <script>
+      System.import("jspm-mocha-example").then(function (myModule){
+        document.getElementById("output").innerHTML = myModule;
+      });
+    </script>
+  </body>
+</html>

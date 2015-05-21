@@ -1,0 +1,9 @@
+{
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "jspm-mocha-example": "github:curran/jspm-mocha-example@master"
+    },
+    "devDependencies": {}
+  }
+}
