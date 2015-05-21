@@ -12,19 +12,19 @@ The technologies embraced by this starter project are:
 
 ## Project Layout
 
-[`src`](./src) contains the JavaScript source files for the project. These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
+ * [`src`](./src) contains the JavaScript source files for the project. These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
 
-[`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
+ * [`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
 
-[`package.json`](./package.json) and [`config.js`](./config.js) are files used by JSPM. These define project dependencies and how SystemJS should try to load them. To understand these files, take a look at:
+ * [`package.json`](./package.json) and [`config.js`](./config.js) are files used by JSPM. These define project dependencies and how SystemJS should try to load them. To understand these files, take a look at:
 
- * [Configuring Packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm)
- * [SystemJS Configuration Options](https://github.com/systemjs/systemjs/wiki/Configuration-Options)
+   * [Configuring Packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm)
+   * [SystemJS Configuration Options](https://github.com/systemjs/systemjs/wiki/Configuration-Options)
 
-[`index.html`](./index.html) contains the [Browser version of the Mocha test runner](http://mochajs.org/#browser-support), modified to load unit tests via SystemJS. This setup allows unit tests to require project modules using AMD syntax. To understand the implementation of this page, take a look at:
+ * [`index.html`](./index.html) contains the [Browser version of the Mocha test runner](http://mochajs.org/#browser-support), modified to load unit tests via SystemJS. This setup allows unit tests to require project modules using AMD syntax. To understand the implementation of this page, take a look at:
 
- * [HTML Code from the JSPM Getting Started Guide](https://github.com/jspm/jspm-cli/wiki/Getting-Started#5-run-the-code)
- * [The Mocha Browser test runner HTML code](http://mochajs.org/#browser-support)
+   * [HTML Code from the JSPM Getting Started Guide](https://github.com/jspm/jspm-cli/wiki/Getting-Started#5-run-the-code)
+   * [The Mocha Browser test runner HTML code](http://mochajs.org/#browser-support)
 
 ## Installing this package using JSPM
 
