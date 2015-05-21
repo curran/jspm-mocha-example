@@ -40,6 +40,8 @@ System.import("jspm-mocha-example").then(function (myModule){
 });
 ```
 
+For more details, see the [gh-pages branch](https://github.com/curran/jspm-mocha-example/tree/gh-pages), which contains a full project that uses the jspm-mocha-example package via JSPM.
+
 ## Using the Project
 
 To set up your development environment for this project, you'll need to install:
