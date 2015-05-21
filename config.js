@@ -1,5 +1,5 @@
 System.config({
-  "baseURL": "/",
+  "baseURL": "/jspm-mocha-example",
   "transpiler": "traceur",
   "paths": {
     "*": "*.js",
