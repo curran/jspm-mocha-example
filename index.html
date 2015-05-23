@@ -32,7 +32,7 @@
     <div id="mocha"></div>
     <script>
       mocha.setup("bdd");
-      System.amdRequire(["test/tests"], function (){
+      System.import("test/tests").then(function (){
         mocha.run();
       });
     </script>

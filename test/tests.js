@@ -1,4 +1,4 @@
-define(["chai", "src/myModule"], function (chai, myModule){
+define(["chai", "lib/myModule"], function (chai, myModule){
   var expect = chai.expect;
   describe("My Module", function(){
     describe("Module Loading", function(){

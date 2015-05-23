@@ -1,10 +1,7 @@
 {
   "jspm": {
-    "main": "myModule",
+    "main": "lib/myModule",
     "format": "amd",
-    "directories": {
-      "lib": "src"
-    },
     "dependencies": {},
     "devDependencies": {
       "chai": "github:chaijs/chai@^2.3.0",
