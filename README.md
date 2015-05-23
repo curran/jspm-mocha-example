@@ -27,4 +27,10 @@ git commit -m "Added gh-pages example project"
 git push
 ```
 
+The self-executing bundle `build.js` is built with the following command:
+
+```bash
+jspm bundle-sfx dist/main -m
+```
+
 <sub>Curran Kelleher May 2015</sub>
