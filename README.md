@@ -12,7 +12,7 @@ The technologies embraced by this starter project are:
 
 ## Project Layout
 
- * [`src`](./src) contains the JavaScript source files for the project. These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
+ * [`lib`](./lib) contains the JavaScript source files for the project (which is a "library", so this directory is "lib"). These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
 
  * [`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
 
