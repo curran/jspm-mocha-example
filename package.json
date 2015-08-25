@@ -1,19 +1,20 @@
 {
   "jspm": {
-    "main": "lib/myModule",
-    "format": "amd",
+    "directories": {},
     "dependencies": {},
     "devDependencies": {
-      "chai": "github:chaijs/chai@^2.3.0",
-      "mocha": "github:mochajs/mocha@^2.2.5",
-      "traceur": "github:jmcriffey/bower-traceur@0.0.88",
-      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88"
-    },
-    "overrides": {
-      "github:chaijs/chai@2.3.0": {
-        "main": "chai",
-        "format": "amd"
-      }
+      "babel": "npm:babel-core@^5.8.22",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "chai": "npm:chai@^3.2.0",
+      "core-js": "npm:core-js@^1.1.1",
+      "mocha": "npm:mocha@^2.2.5"
     }
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "chai": "^3.2.0",
+    "jspm": "^0.16.1",
+    "mocha": "^2.2.5",
+    "systemjs": "^0.18.14"
   }
 }
