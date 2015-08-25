@@ -1,16 +1,26 @@
-define(["chai", "lib/myModule"], function (chai, myModule){
-  var expect = chai.expect;
-  describe("My Module", function(){
-    describe("Module Loading", function(){
-      it("should load", function(){
-        expect(myModule).to.equal("myModule works!");
-      });
-    });
+import { expect } from 'chai';
+import System from 'systemjs';
+import '../config.js';
 
-    describe("Test Failing", function(){
-      it("should show a failed test", function(){
-        expect("apples").to.equal("oranges");
-      });
+describe('myModule', () => {
+  let myModule;
+
+  before((done) => {
+    System.import('./lib/myModule.js')
+      .then((mod) => myModule = mod)
+      .then(() => done())
+      .catch((err) => console.error(err));
+  });
+
+  describe('Module Loading', () => {
+    it('should load', () => {
+      expect(myModule['default']).to.equal('myModule works!');
+    });
+  });
+
+  describe('Test Failing', () => {
+    it('should show a failed test', () => {
+      expect('apples').to.equal('oranges');
     });
   });
 });

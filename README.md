@@ -6,7 +6,7 @@ The technologies embraced by this starter project are:
 
  * [JSPM](http://jspm.io/) Package manager
  * [SystemJS](https://github.com/systemjs/systemjs) Module loader
- * [Asynchronous Module Definition](http://requirejs.org/docs/whyamd.html) (AMD) module format
+ * [ES2015 Syntax](http://babeljs.io/docs/learn-es2015/)
  * [Mocha](http://mochajs.org/) Testing framework
  * [Chai](http://chaijs.com/) Assertion library
 
@@ -14,17 +14,12 @@ The technologies embraced by this starter project are:
 
  * [`lib`](./lib) contains the JavaScript source files for the project (which is a "library", so this directory is "lib"). These are authored using AMD syntax. The location of the main module exported in the project package is declared in `package.json` as the `main` property under `jspm`.
 
- * [`test`](./test) contains unit tests. These are also authored using AMD syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`, because Mocha.js is loaded via a script tag in `index.html`, the unit test runner.
+ * [`test`](./test) contains unit tests. These are also authored using ES2015 syntax. Unit test source files can assume that Mocha globals such as `describe` and `it`.
 
  * [`package.json`](./package.json) and [`config.js`](./config.js) are files used by JSPM. These define project dependencies and how SystemJS should try to load them. To understand these files, take a look at:
 
    * [Configuring Packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm)
    * [SystemJS Configuration Options](https://github.com/systemjs/systemjs/wiki/Configuration-Options)
-
- * [`index.html`](./index.html) contains the [Browser version of the Mocha test runner](http://mochajs.org/#browser-support), modified to load unit tests via SystemJS. This setup allows unit tests to require project modules using AMD syntax. To understand the implementation of this page, take a look at:
-
-   * [HTML Code from the JSPM Getting Started Guide](https://github.com/jspm/jspm-cli/wiki/Getting-Started#5-run-the-code)
-   * [The Mocha Browser test runner HTML code](http://mochajs.org/#browser-support)
 
 ## Installing this package using JSPM
 
@@ -36,7 +31,7 @@ After doing this, you can use SystemJS to load the module like this:
 
 ```javascript
 System.import("jspm-mocha-example").then(function (myModule){
-  console.log(myModule); // Prints "myModule works!"
+  console.log(myModule["defaults"]); // Prints "myModule works!"
 });
 ```
 
@@ -49,7 +44,6 @@ To set up your development environment for this project, you'll need to install:
  * [Git](http://git-scm.com/)
  * [Node.js](https://nodejs.org/)
  * [JSPM](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
- * [http-server](https://www.npmjs.com/package/http-server)
 
 To use this project as a starting point, you'll need to fork it in GitHub, then clone it to your local machine using the following command (replacing "curran" with your user name):
 
@@ -59,37 +53,72 @@ To install project dependencies, use the following commands:
 
 ```
 cd jspm-mocha-example
-jspm install --dev
+npm install
+jspm install
 ```
 
 You should then see something like this:
 
 ```
-$ jspm install --dev
+$ jspm install
 
-     Looking up github:jmcriffey/bower-traceur
-     Looking up github:jmcriffey/bower-traceur-runtime
-     Looking up github:mochajs/mocha
-     Looking up github:chaijs/chai
+    Looking up npm:babel-core
+    Looking up npm:babel-runtime
+    Looking up npm:chai
+    Looking up npm:core-js
+    Looking up npm:mocha
+    Updating registry cache...
+    Looking up npm:deep-eql
+    Looking up npm:type-detect
+    Looking up npm:assertion-error
+ok   Installed babel as npm:babel-core@^5.8.22 (5.8.22)
+ok   Installed npm:assertion-error@^1.0.1 (1.0.1)
+ok   Installed npm:deep-eql@^0.1.3 (0.1.3)
+ok   Installed npm:type-detect@^1.0.0 (1.0.0)
+    Looking up github:systemjs/plugin-json
+    Looking up github:jspm/nodelibs-process
+    Looking up github:jspm/nodelibs-buffer
+    Looking up github:systemjs/plugin-css
+ok   Installed npm:type-detect@0.1.1 (0.1.1)
+ok   Installed github:systemjs/plugin-json@^0.1.0 (0.1.0)
+ok   Installed github:systemjs/plugin-css (0.1.14)
+ok   Installed mocha as npm:mocha@^2.2.5 (2.2.5)
+ok   Installed github:jspm/nodelibs-process@^0.1.0 (0.1.1)
+    Looking up npm:process
+ok   Installed github:jspm/nodelibs-buffer@^0.1.0 (0.1.0)
+    Looking up npm:buffer
+ok   Installed npm:process@^0.10.0 (0.10.1)
+ok   Installed babel-runtime as npm:babel-runtime@^5.8.20 (5.8.20)
+ok   Installed npm:buffer@^3.0.1 (3.4.3)
+    Looking up npm:base64-js
+    Looking up npm:ieee754
+    Looking up npm:is-array
+ok   Installed npm:is-array@^1.0.1 (1.0.1)
+ok   Installed npm:base64-js@0.0.8 (0.0.8)
+ok   Installed npm:ieee754@^1.1.4 (1.1.6)
+ok   Installed chai as npm:chai@^3.2.0 (3.2.0)
+    Looking up github:jspm/nodelibs-fs
+ok   Installed github:jspm/nodelibs-fs@^0.1.0 (0.1.2)
+ok   Installed core-js as npm:core-js@^1.1.1 (1.1.1)
+    Installed Forks
 
-warn Using local override for github:chaijs/chai@2.3.0
-     Updating registry cache...
-ok   Installed traceur-runtime as github:jmcriffey/bower-traceur-runtime@0.0.88 (0.0.88)
-ok   Installed chai as github:chaijs/chai@^2.3.0 (2.3.0)
-ok   Installed traceur as github:jmcriffey/bower-traceur@0.0.88 (0.0.88)
-ok   Installed mocha as github:mochajs/mocha@^2.2.5 (2.2.5)
-ok   Install tree has no forks.
-     Looking up loader files...
-       es6-module-loader.js
-       es6-module-loader.js.map
-       system.js
-       es6-module-loader.src.js
-       system.js.map
-       system.src.js
-     
-     Using loader versions:
-       es6-module-loader@0.16.6
-       systemjs@0.16.11
+               npm:type-detect 0.1.1 1.0.0
+
+    To inspect individual package constraints, use jspm inspect registry:name.
+
+    Looking up loader files...
+      system.js
+      system-csp-production.js
+      system.js.map
+      system-polyfills.js
+      system.src.js
+      system-csp-production.js.map
+      system-polyfills.src.js
+      system-polyfills.js.map
+      system-csp-production.src.js
+
+    Using loader versions:
+      systemjs@0.18.14
 ok   Loader files downloaded successfully
 
 ok   Install complete.
@@ -99,27 +128,33 @@ Running `jspm install` populates the `jspm_packages` directory, which is where S
 
 ## Running the Unit Tests
 
-Run the unit tests by running a local HTTP server, then navigating to [http://localhost:8080](http://localhost:8080). If you have installed [Node http-server](https://www.npmjs.com/package/http-server), you can run it with the command `http-server` from within the root directory of this repository.
+Run the unit tests by running Mocha from the command line.
 
 ```
 cd jspm-mocha-example
-http-server
+./node_modules/.bin/mocha --compilers js:babel/register test/tests.js
 ```
 
 At this point you should see this super shiny Mocha unit test runner:
 
-![](http://curran.github.io/images/jspm-mocha-example/jspmMocha.png)
+```sh
+myModule
+  Module Loading
+    ✓ should load
+  Test Failing
+    1) should show a failed test
 
-If you see the following, then perhaps you didn't run `jspm install --dev`.
 
-![](http://curran.github.io/images/jspm-mocha-example/fail.png)
+1 passing (845ms)
+1 failing
 
-It turns out that the [`--dev` option is required to install the `devDependencies` listed in package.json](https://github.com/jspm/jspm-cli/issues/747). We want Mocha and Chai to be devDependencies, not dependencies, because other projects that declare this project as a dependency should not need to install them, they are only for use during development.
+1) myModule Test Failing should show a failed test:
 
-One convenient trick is to run the HTTP server as a background process in your terminal, rather than opening a new terminal tab or window for it, using the following command:
+    AssertionError: expected 'apples' to equal 'oranges'
+    + expected - actual
 
-`http-server > /dev/null &`
+    -apples
+    +oranges
 
-Now you can edit your code, save the files, then refresh the page to get into the flow of development.
-
-To stop this server, execute the command `fg` to bring the process to the foreground, then hit CTRL-C to terminate it.
+    at Context.<anonymous> (test/tests.js:23:27)
+```
