@@ -134,29 +134,37 @@ Run the unit tests by running Mocha from the command line.
 
 ```
 cd jspm-mocha-example
-./node_modules/.bin/mocha --compilers js:babel/register test/tests.js
+./node_modules/.bin/mocha --compilers js:babel/register test/tests
+```
+
+For convenience, the above command has been added as the `test` script in `package.json`, so you can run the tests this way also:
+
+```
+npm test
 ```
 
 At this point you should see this super shiny Mocha unit test runner:
 
 ```sh
-myModule
-  Module Loading
-    ✓ should load
-  Test Failing
-    1) should show a failed test
+  myModule
+    Module Loading
+     ✓ should load
+    Sinon Mocks and Spies
+     ✓ should mock lodash
 
-
-1 passing (845ms)
-1 failing
-
-1) myModule Test Failing should show a failed test:
-
-    AssertionError: expected 'apples' to equal 'oranges'
-    + expected - actual
-
-    -apples
-    +oranges
-
-    at Context.<anonymous> (test/tests.js:23:27)
+  2 passing (353ms)
 ```
+
+## Continuous Integration
+
+Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test that this setup works in a continuous integration environment, an integration was done with [Travis CI](https://travis-ci.org/). According to the [Travis Node.js Documentation](http://docs.travis-ci.com/user/languages/javascript-with-nodejs/), Travis automatically runs `npm install` and `npm test`. The only additional thing I had to add to the Travis configuration was to run `jspm install` before running the tests. The working Travis config looks like this:
+
+```yml
+language: node_js
+node_js:
+  - "0.12"
+before_script:
+  - jspm install
+```
+
+Here's the [Travis build page for this project](https://travis-ci.org/curran/jspm-mocha-example), which shows the tests passing.
