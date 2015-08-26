@@ -1,13 +1,13 @@
 {
   "jspm": {
     "directories": {},
-    "dependencies": {},
+    "dependencies": {
+      "lodash": "npm:lodash@^3.10.1"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.22",
       "babel-runtime": "npm:babel-runtime@^5.8.20",
-      "chai": "npm:chai@^3.2.0",
-      "core-js": "npm:core-js@^1.1.1",
-      "mocha": "npm:mocha@^2.2.5"
+      "core-js": "npm:core-js@^1.1.1"
     }
   },
   "devDependencies": {
@@ -15,6 +15,8 @@
     "chai": "^3.2.0",
     "jspm": "^0.16.1",
     "mocha": "^2.2.5",
+    "sinon": "^1.16.1",
+    "sinon-chai": "^2.8.0",
     "systemjs": "^0.18.14"
   }
 }
