@@ -1,5 +1,7 @@
 # jspm-mocha-example
 
+[![Build Status](https://travis-ci.org/curran/jspm-mocha-example.svg)](https://travis-ci.org/curran/jspm-mocha-example)
+
 This is an example project that tests out a specific combination of JavaScript tools.
 
 The technologies embraced by this starter project are:
