@@ -26,13 +26,12 @@ describe('myModule', () => {
   describe('Module Loading', () => {
     it('should load', () => {
       expect(myModule['default']).to.equal('myModuleWorks');
-      expect(_.camelCase).to.have.been.calledWith('myModule works!');
     });
   });
 
-  describe('Test Failing', () => {
-    it('should show a failed test', () => {
-      expect('apples').to.equal('oranges');
+  describe('Sinon Mocks and Spies', () => {
+    it('should mock lodash', () => {
+      expect(_.camelCase).to.have.been.calledWith('myModule works!');
     });
   });
 });
