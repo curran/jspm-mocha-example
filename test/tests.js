@@ -9,8 +9,8 @@ chai.use(sinonChai);
 describe('myModule', () => {
   let _, myModule;
 
-  before((done) => {
-    System.import('lodash')
+  before(() => {
+    return System.import('lodash')
       .then((lodash) => {
         _ = lodash;
         // Mock lodash library
@@ -20,9 +20,7 @@ describe('myModule', () => {
         }));
       })
       .then(() => System.import('./lib/myModule.js'))
-      .then((mod) => myModule = mod)
-      .then(() => done())
-      .catch((err) => console.error(err));
+      .then((mod) => myModule = mod);
   });
 
   describe('Module Loading', () => {
